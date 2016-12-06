@@ -16,7 +16,7 @@
 
 ## Required Behavior
 
-* [ ] App conforms to common standards found in the [Android Nanodegree General Project Guidelines](Android Nanodegree General Project Guidelines).
+* [ ] App conforms to common standards found in the Android Nanodegree General Project Guidelines.
 
 ## User Feedback for Stock Hawk:
 ### Hellen says:
