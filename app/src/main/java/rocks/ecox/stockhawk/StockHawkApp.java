@@ -2,6 +2,8 @@ package rocks.ecox.stockhawk;
 
 import android.app.Application;
 
+import com.github.mikephil.charting.BuildConfig;
+
 import timber.log.Timber;
 
 public class StockHawkApp extends Application {
@@ -10,7 +12,7 @@ public class StockHawkApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        if (rocks.ecox.stockhawk.BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Timber.uprootAll();
             Timber.plant(new Timber.DebugTree());
         }
