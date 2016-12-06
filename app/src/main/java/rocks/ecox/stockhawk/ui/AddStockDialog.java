@@ -13,10 +13,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import rocks.ecox.stockhawk.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rocks.ecox.stockhawk.R;
 
 
 public class AddStockDialog extends DialogFragment {
