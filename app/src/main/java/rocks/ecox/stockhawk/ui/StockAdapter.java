@@ -2,12 +2,14 @@ package rocks.ecox.stockhawk.ui;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -21,12 +23,12 @@ import rocks.ecox.stockhawk.data.PrefUtils;
 
 class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
 
-    final private Context context;
     final private DecimalFormat dollarFormatWithPlus;
     final private DecimalFormat dollarFormat;
     final private DecimalFormat percentageFormat;
     private Cursor cursor;
     private StockAdapterOnClickHandler clickHandler;
+    private Context context;
 
     StockAdapter(Context context, StockAdapterOnClickHandler clickHandler) {
         this.context = context;
@@ -101,7 +103,6 @@ class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
         return count;
     }
 
-
     interface StockAdapterOnClickHandler {
         void onClick(String symbol);
     }
@@ -125,11 +126,17 @@ class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
 
         @Override
         public void onClick(View v) {
+            final Intent intent;
+            context = itemView.getContext();
+
             int adapterPosition = getAdapterPosition();
             cursor.moveToPosition(adapterPosition);
             int symbolColumn = cursor.getColumnIndex(Contract.Quote.COLUMN_SYMBOL);
             clickHandler.onClick(cursor.getString(symbolColumn));
 
+            Toast.makeText(context, "" + cursor.getString(symbolColumn), Toast.LENGTH_SHORT).show();
+            intent = new Intent(context, DetailActivity.class);
+            context.startActivity(intent);
         }
 
 
