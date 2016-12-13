@@ -135,7 +135,9 @@ class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
             clickHandler.onClick(cursor.getString(symbolColumn));
 
             Toast.makeText(context, "" + cursor.getString(symbolColumn), Toast.LENGTH_SHORT).show();
-            intent = new Intent(context, DetailActivity.class);
+            intent = new Intent(context, DetailActivity.class)
+                    .putExtra(Intent.EXTRA_TEXT, this.symbol.getText())
+                    .putExtra("tag", "historical");
             context.startActivity(intent);
         }
 
