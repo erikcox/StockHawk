@@ -8,9 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
-import rocks.ecox.stockhawk.data.Contract;
-import rocks.ecox.stockhawk.data.PrefUtils;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +21,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import rocks.ecox.stockhawk.R;
+import rocks.ecox.stockhawk.data.Contract;
+import rocks.ecox.stockhawk.data.PrefUtils;
 import timber.log.Timber;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
@@ -67,16 +70,23 @@ public final class QuoteSyncJob {
             while (iterator.hasNext()) {
                 String symbol = iterator.next();
 
+                if (!quotes.containsKey(symbol)) {
+                    notifyOfStockFailure(context, symbol);
+                    continue;
+                }
 
                 Stock stock = quotes.get(symbol);
                 StockQuote quote = stock.getQuote();
+
+                if (quote.getPrice() == null) {
+                    notifyOfStockFailure(context, symbol);
+                    continue;
+                }
 
                 float price = quote.getPrice().floatValue();
                 float change = quote.getChange().floatValue();
                 float percentChange = quote.getChangeInPercent().floatValue();
 
-                // WARNING! Don't request historical data for a stock that doesn't exist!
-                // The request will hang forever X_x
                 List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
 
                 StringBuilder historyBuilder = new StringBuilder();
@@ -131,7 +141,6 @@ public final class QuoteSyncJob {
         scheduler.schedule(builder.build());
     }
 
-
     synchronized public static void initialize(final Context context) {
 
         schedulePeriodic(context);
@@ -164,5 +173,18 @@ public final class QuoteSyncJob {
         }
     }
 
+    private static void notifyOfStockFailure(final Context context, String symbol) {
 
+        PrefUtils.removeStock(context, symbol);
+
+        final String message = context.getString(R.string.error_stock_not_found, symbol);
+
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }

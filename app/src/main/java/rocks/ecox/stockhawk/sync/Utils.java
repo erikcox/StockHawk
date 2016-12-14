@@ -114,4 +114,5 @@ public class Utils {
         calendar.add(Calendar.DATE, -daysAgo);
         return dateFormat.format(calendar.getTime());
     }
+
 }
