@@ -58,7 +58,7 @@ public class Utils {
         if (bidPrice == null){
             return null;
         }
-        bidPrice = String.format("%.2f", Float.parseFloat(bidPrice));
+        bidPrice = String.format(Locale.US, "%.2f", Float.parseFloat(bidPrice));
         return bidPrice;
     }
 
@@ -71,7 +71,7 @@ public class Utils {
         }
         change = change.substring(1, change.length());
         double round = (double) Math.round(Double.parseDouble(change) * 100) / 100;
-        change = String.format("%.2f", round);
+        change = String.format(Locale.US, "%.2f", round);
         StringBuilder changeBuffer = new StringBuilder(change);
         changeBuffer.insert(0, weight);
         changeBuffer.append(ampersand);
