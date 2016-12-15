@@ -13,23 +13,19 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-
 public class StockProvider extends ContentProvider {
-
     static final int QUOTE = 100;
     static final int QUOTE_FOR_SYMBOL = 101;
-
     static UriMatcher uriMatcher = buildUriMatcher();
-
     private DbHelper dbHelper;
 
     static UriMatcher buildUriMatcher() {
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         matcher.addURI(Contract.AUTHORITY, Contract.PATH_QUOTE, QUOTE);
         matcher.addURI(Contract.AUTHORITY, Contract.PATH_QUOTE_WITH_SYMBOL, QUOTE_FOR_SYMBOL);
+
         return matcher;
     }
-
 
     @Override
     public boolean onCreate() {
@@ -74,10 +70,6 @@ public class StockProvider extends ContentProvider {
 
         returnCursor.setNotificationUri(getContext().getContentResolver(), uri);
 
-//        if (db.isOpen()) {
-//            db.close();
-//        }
-
         return returnCursor;
     }
 
@@ -107,7 +99,6 @@ public class StockProvider extends ContentProvider {
         }
 
         getContext().getContentResolver().notifyChange(uri, null);
-
 
         return returnUri;
     }
@@ -177,7 +168,5 @@ public class StockProvider extends ContentProvider {
             default:
                 return super.bulkInsert(uri, values);
         }
-
-
     }
 }

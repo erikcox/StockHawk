@@ -14,7 +14,6 @@ import net.simonvt.schematic.annotation.TableEndpoint;
 @ContentProvider(authority = QuoteProvider.AUTHORITY, database = QuoteDatabase.class)
 public class QuoteProvider {
     public static final String AUTHORITY = "rocks.ecox.stockhawk.data.QuoteProvider";
-
     static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 
     private static Uri buildUri(String... paths) {
@@ -22,6 +21,7 @@ public class QuoteProvider {
         for (String path : paths) {
             builder.appendPath(path);
         }
+
         return builder.build();
     }
 

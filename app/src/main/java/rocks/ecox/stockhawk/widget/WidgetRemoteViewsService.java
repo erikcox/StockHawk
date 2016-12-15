@@ -20,18 +20,14 @@ import rocks.ecox.stockhawk.data.Contract;
 import rocks.ecox.stockhawk.data.PrefUtils;
 import timber.log.Timber;
 
-public class WidgetRemoteViewsService extends RemoteViewsService
-{
-
+public class WidgetRemoteViewsService extends RemoteViewsService {
     private DecimalFormat dollarFormatWithPlus;
     private DecimalFormat dollarFormat;
     private DecimalFormat percentageFormat;
 
-
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
         return new RemoteViewsFactory() {
-
             private Cursor cursor = null;
 
             @Override
@@ -75,11 +71,8 @@ public class WidgetRemoteViewsService extends RemoteViewsService
 
             @Override
             public RemoteViews getViewAt(int position) {
-
                 cursor.moveToPosition(position);
-
                 RemoteViews views = new RemoteViews(getPackageName(), R.layout.widget_list_item);
-
                 Timber.d("Populating a view at %d with symbol %s", position, cursor.getString(Contract.Quote.POSITION_SYMBOL));
 
                 String symbol = cursor.getString(Contract.Quote.POSITION_SYMBOL);
@@ -120,7 +113,6 @@ public class WidgetRemoteViewsService extends RemoteViewsService
 
             @Override
             public int getViewTypeCount() {
-
                 return 1;
             }
 

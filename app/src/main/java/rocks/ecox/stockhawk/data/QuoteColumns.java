@@ -37,5 +37,4 @@ public class QuoteColumns {
     @DataType(DataType.Type.TEXT)
     @NotNull
     public static final String NAME = "name";
-
 }
