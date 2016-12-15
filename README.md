@@ -6,7 +6,7 @@
 
 * [x] Stock Hawk does not crash when a user searches for a non-existent stock.
 
-* [ ] Stock Hawk Stocks can be displayed in a collection widget.
+* [x] Stock Hawk Stocks can be displayed in a collection widget.
 
 * [x] Stock Hawk app has content descriptions for all buttons.
 
