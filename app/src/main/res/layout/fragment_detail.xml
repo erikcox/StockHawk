@@ -60,7 +60,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:color/darker_gray"
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="@string/button_month"/>
