@@ -167,11 +167,11 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         }
     }
 
-
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
     }
 
+    // Grab stock history
     public void fetchStockHistory() {
 
         Log.i(LOG_TAG, "DATE: " + Utils.getDate(1));
@@ -205,6 +205,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         });
     }
 
+    // Draw line chart
     public void updateLineChart() {
         LineDataSet lineDataSet = new LineDataSet(mClosingPrices, "$");
         LineData lineData = new LineData(mDates, lineDataSet);
