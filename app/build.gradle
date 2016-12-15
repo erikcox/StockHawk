@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016 Erik Cox
+ */
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.noveogroup.android.check'

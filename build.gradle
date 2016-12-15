@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016 Erik Cox
+ */
+
 apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {

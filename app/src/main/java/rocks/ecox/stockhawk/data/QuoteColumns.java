@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016 Erik Cox
+ */
+
 package rocks.ecox.stockhawk.data;
 
 import net.simonvt.schematic.annotation.AutoIncrement;

@@ -1,1 +1,5 @@
+/*
+ * Copyright (c) 2016 Erik Cox
+ */
+
 include ':app'

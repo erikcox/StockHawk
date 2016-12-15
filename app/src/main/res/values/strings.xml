@@ -1,3 +1,7 @@
+<!--
+  ~ Copyright (c) 2016 Erik Cox
+  -->
+
 <resources xmlns:xliff="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Stock Hawk</string>
 
@@ -40,5 +44,8 @@
     <string name="a11y_symbol">Symbol: <xliff:g id="symbol">%1$s</xliff:g></string>
     <string name="a11y_price">Price: <xliff:g id="condition">%1$s</xliff:g></string>
     <string name="a11y_change">Change: <xliff:g id="condition">%1$s</xliff:g></string>
+    <string name="widget_empty">No stock data available</string>
+    <string name="content_description_graph">Stock history</string>
+    <string name="widget_title">Stocks</string>
 
 </resources>
