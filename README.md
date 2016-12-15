@@ -8,7 +8,7 @@
 
 * [ ] Stock Hawk Stocks can be displayed in a collection widget.
 
-* [ ] Stock Hawk app has content descriptions for all buttons.
+* [x] Stock Hawk app has content descriptions for all buttons.
 
 * [x] Stock Hawk app supports layout mirroring using both the RTL attribute and the start/end tags.
 
