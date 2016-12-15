@@ -14,7 +14,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.widget.RemoteViews;
 
-import rocks.ecox.stockhawk.GraphActivity;
+import rocks.ecox.stockhawk.ui.GraphActivity;
 import rocks.ecox.stockhawk.R;
 import rocks.ecox.stockhawk.sync.QuoteSyncJob;
 import rocks.ecox.stockhawk.ui.MainActivity;

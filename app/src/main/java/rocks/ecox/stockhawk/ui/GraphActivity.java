@@ -2,7 +2,7 @@
  * Copyright (c) 2016 Erik Cox
  */
 
-package rocks.ecox.stockhawk;
+package rocks.ecox.stockhawk.ui;
 
 import android.database.Cursor;
 import android.graphics.Color;
@@ -34,6 +34,7 @@ import java.util.Locale;
 import au.com.bytecode.opencsv.CSVReader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rocks.ecox.stockhawk.R;
 import rocks.ecox.stockhawk.data.Contract;
 import timber.log.Timber;
 
