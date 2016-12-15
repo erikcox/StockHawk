@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="FB"
-            android:textColor="@color/material_blue_500"
+            android:textColor="@color/material_blue"
             android:textAppearance="?android:textAppearanceMedium"
             />
         <TextView
@@ -51,26 +51,29 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="One week"
-                android:padding="16dp"/>
+                android:background="@android:color/darker_gray"
+                android:padding="16dp"
+                android:text="@string/button_week"/>
 
             <TextView
                 android:id="@+id/detail_month_textview"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
                 android:gravity="center"
-                android:text="One month"
-                android:padding="16dp"/>
+                android:padding="16dp"
+                android:text="@string/button_month"/>
 
             <TextView
                 android:id="@+id/detail_year_textview"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
                 android:gravity="center"
-                android:text="One year"
-                android:padding="16dp"/>
+                android:padding="16dp"
+                android:text="@string/button_year"/>
 
         </LinearLayout>
 

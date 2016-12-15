@@ -24,13 +24,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import rocks.ecox.stockhawk.R;
 import rocks.ecox.stockhawk.data.Contract;
 import rocks.ecox.stockhawk.data.PrefUtils;
 import rocks.ecox.stockhawk.sync.QuoteSyncJob;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>,

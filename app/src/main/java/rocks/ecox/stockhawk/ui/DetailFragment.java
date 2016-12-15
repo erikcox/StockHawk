@@ -45,7 +45,6 @@ import timber.log.Timber;
 
 public class DetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    public static final int COL_ID = 0;
     public static final int COL_SYMBOL = 1;
     public static final int COL_BIDPRICE = 2;
     public static final int COL_PERCENT_CHANGE = 3;
@@ -76,7 +75,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     @BindView(R.id.detail_year_textview)
     TextView mYearTextView;
     private LineChart mLineChart;
-//    private String mSymbol;
     private String stock;
     private ArrayList<Entry> mClosingPrices;
     private ArrayList<String> mDates;

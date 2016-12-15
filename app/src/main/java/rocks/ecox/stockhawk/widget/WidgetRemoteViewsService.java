@@ -23,7 +23,6 @@ import timber.log.Timber;
 public class WidgetRemoteViewsService extends RemoteViewsService
 {
 
-
     private DecimalFormat dollarFormatWithPlus;
     private DecimalFormat dollarFormat;
     private DecimalFormat percentageFormat;
@@ -83,7 +82,6 @@ public class WidgetRemoteViewsService extends RemoteViewsService
 
                 Timber.d("Populating a view at %d with symbol %s", position, cursor.getString(Contract.Quote.POSITION_SYMBOL));
 
-
                 String symbol = cursor.getString(Contract.Quote.POSITION_SYMBOL);
                 String price = dollarFormat.format(cursor.getFloat(Contract.Quote.POSITION_PRICE));
                 float rawAbsoluteChange = cursor.getFloat(Contract.Quote.POSITION_ABSOLUTE_CHANGE);
@@ -91,10 +89,8 @@ public class WidgetRemoteViewsService extends RemoteViewsService
                 String change = dollarFormatWithPlus.format(rawAbsoluteChange);
                 String percentage = percentageFormat.format(percentageChange / 100);
 
-//
                 views.setTextViewText(R.id.symbol, symbol);
                 views.setTextViewText(R.id.price, price);
-//
 
                 if (rawAbsoluteChange > 0) {
                     views.setInt(R.id.change, "setBackgroundResource", R.drawable.percent_change_pill_green);
@@ -102,7 +98,6 @@ public class WidgetRemoteViewsService extends RemoteViewsService
                     views.setInt(R.id.change, "setBackgroundResource", R.drawable.percent_change_pill_red);
                 }
 
-//
                 if (PrefUtils.getDisplayMode(WidgetRemoteViewsService.this)
                         .equals(WidgetRemoteViewsService.this.getString(R.string.pref_display_mode_absolute_key))) {
                     views.setTextViewText(R.id.change, change);
@@ -134,8 +129,6 @@ public class WidgetRemoteViewsService extends RemoteViewsService
                 if (cursor.moveToPosition(position))
                     return cursor.getLong(Contract.Quote.POSITION_ID);
                 return position;
-
-
             }
 
             @Override

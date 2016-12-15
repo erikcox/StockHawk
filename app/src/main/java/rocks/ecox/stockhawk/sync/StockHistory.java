@@ -26,7 +26,7 @@ public class StockHistory {
     }
 
     public ArrayList<Entry> getClosingPrices(int count) {
-        ArrayList<Entry> closingPrices = new ArrayList<Entry>();
+        ArrayList<Entry> closingPrices = new ArrayList<>();
         try{
             List<Quote> quotes = query.getResults().getQuotes();
             for (int i = 0; i < count; i++) {
