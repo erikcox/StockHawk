@@ -40,7 +40,6 @@ import timber.log.Timber;
 
 public class GraphActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-
     private static final int LOADER_ID = 0;
     @BindView(R.id.symbol)
     TextView symbol;
@@ -62,10 +61,10 @@ public class GraphActivity extends AppCompatActivity implements LoaderManager.Lo
         data.moveToFirst();
 
         try {
+            // Read stock data
             CSVReader reader = new CSVReader(new StringReader(data.getString(Contract.Quote.POSITION_HISTORY)));
 
             List<String[]> lines = reader.readAll();
-
             ArrayList<String> dates = new ArrayList<>();
             ArrayList<Entry> entries = new ArrayList<>();
 
@@ -81,40 +80,30 @@ public class GraphActivity extends AppCompatActivity implements LoaderManager.Lo
 
             int textColor = Color.WHITE;
 
-
             dataSet.setValueTextColor(textColor);
             LineData lineData = new LineData(dates, dataSet);
 
+            // Build chart
             chart.setDescription("");
-
             chart.setNoDataText(getString(R.string.chart_no_data));
-
-
             chart.getLegend().setTextColor(textColor);
-
             chart.setData(lineData);
             chart.getAxisLeft().setValueFormatter(yFormatter);
             chart.getAxisRight().setValueFormatter(yFormatter);
             chart.getXAxis().setValueFormatter(xFormatter);
-
             chart.getXAxis().setTextColor(textColor);
             chart.getAxisLeft().setTextColor(textColor);
             chart.getAxisRight().setTextColor(textColor);
-
             chart.invalidate();
 
-
         } catch (IOException e) {
-            Timber.e(e, "Failed to read in history data");
+            Timber.e(e, "Couldn't read history data");
         }
-
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,33 +111,30 @@ public class GraphActivity extends AppCompatActivity implements LoaderManager.Lo
         setContentView(R.layout.activity_graph);
 
         ButterKnife.bind(this);
-
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
 
-        yFormatter = new MyYAxisValueFormatter();
-        xFormatter = new MyXAxisValueFormatter();
+        yFormatter = new yAxisValueFormatter();
+        xFormatter = new xAxisValueFormatter();
     }
 
-    public class MyYAxisValueFormatter implements YAxisValueFormatter {
-
+    // Format y-axis
+    private class yAxisValueFormatter implements YAxisValueFormatter {
         NumberFormat dollarFormat;
 
-        public MyYAxisValueFormatter() {
+        yAxisValueFormatter() {
             dollarFormat = NumberFormat.getCurrencyInstance(Locale.US);
         }
 
         @Override
         public String getFormattedValue(float value, YAxis yAxis) {
             return dollarFormat.format(value);
-
         }
     }
 
-    public class MyXAxisValueFormatter implements XAxisValueFormatter {
-
+    private class xAxisValueFormatter implements XAxisValueFormatter {
         DateFormat dateFormat;
 
-        public MyXAxisValueFormatter() {
+        xAxisValueFormatter() {
             dateFormat = new SimpleDateFormat("MM/yy", Locale.getDefault());
         }
 
