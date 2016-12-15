@@ -22,7 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import rocks.ecox.stockhawk.R;
 
-
 public class AddStockDialog extends DialogFragment {
 
     @BindView(R.id.dialog_stock)
@@ -45,8 +44,8 @@ public class AddStockDialog extends DialogFragment {
                 return true;
             }
         });
-        builder.setView(custom);
 
+        builder.setView(custom);
         builder.setMessage(getString(R.string.dialog_title));
         builder.setPositiveButton(getString(R.string.dialog_add),
                 new DialogInterface.OnClickListener() {
@@ -61,6 +60,7 @@ public class AddStockDialog extends DialogFragment {
         return dialog;
     }
 
+    // Add stock to MainActivity ui
     private void addStock() {
         Activity parent = getActivity();
         if (parent instanceof MainActivity) {
@@ -68,6 +68,4 @@ public class AddStockDialog extends DialogFragment {
         }
         dismissAllowingStateLoss();
     }
-
-
 }
