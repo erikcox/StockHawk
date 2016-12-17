@@ -1,5 +1,7 @@
 # StockHawk
 
+An Android app for viewing stock prices.
+
 ## Required Components
 
 * [x] Each stock quote on the main screen is clickable and leads to a new screen which graphs the stock's value over time.
