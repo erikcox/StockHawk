@@ -1,6 +1,6 @@
 # StockHawk
 
-An Android app for viewing stock prices. Project three from Udacity's Android Nanodegree program.
+An Android app for viewing stock prices. Project 3 from Udacity's Android Nanodegree program.
 
 ## Required Components
 
