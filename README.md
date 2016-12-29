@@ -1,4 +1,4 @@
-# StockHawk
+# Stock Hawk
 
 An Android app for viewing stock prices. Project 3 from Udacity's Android Nanodegree program.
 
